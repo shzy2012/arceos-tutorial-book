@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>helloworld 的crates/modules组成 - Arceos Tutorial Book</title>
+        <title>添加 axruntime 组件提供更完整的运行环境 - Arceos Tutorial Book</title>
 
 
         <!-- Custom HTML head -->
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">简明 Arceos Tutorial Book</a></li><li class="chapter-item expanded "><a href="ch01-00.html"><strong aria-hidden="true">1.</strong> 实验环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01.html"><strong aria-hidden="true">1.1.</strong> OS 环境配置</a></li><li class="chapter-item expanded "><a href="ch01-02.html"><strong aria-hidden="true">1.2.</strong> Rust 开发环境配置</a></li><li class="chapter-item expanded "><a href="ch01-03.html"><strong aria-hidden="true">1.3.</strong> Qemu 模拟器安装</a></li><li class="chapter-item expanded "><a href="ch01-04.html"><strong aria-hidden="true">1.4.</strong> 其他工具安装</a></li><li class="chapter-item expanded "><a href="ch01-05.html"><strong aria-hidden="true">1.5.</strong> 运行 Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00.html"><strong aria-hidden="true">2.</strong> unikernel 基本概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch02-01.html"><strong aria-hidden="true">2.1.</strong> 什么是单核？</a></li><li class="chapter-item expanded "><a href="ch02-02.html"><strong aria-hidden="true">2.2.</strong> arceos 的组成</a></li><li class="chapter-item expanded "><a href="ch02-03.html"><strong aria-hidden="true">2.3.</strong> 与具体 OS 无关的 crates</a></li><li class="chapter-item expanded "><a href="ch02-04.html"><strong aria-hidden="true">2.4.</strong> 与具有 OS 相关的 modules</a></li><li class="chapter-item expanded "><a href="ch02-05.html"><strong aria-hidden="true">2.5.</strong> arceos 的框架设计</a></li></ol></li><li class="chapter-item expanded "><a href="ch03-00.html"><strong aria-hidden="true">3.</strong> 设计实现 helloworld unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01.html"><strong aria-hidden="true">3.1.</strong> hellowold 的功能需求分析</a></li><li class="chapter-item expanded "><a href="ch03-02.html"><strong aria-hidden="true">3.2.</strong> Rust 开发环境配置</a></li><li class="chapter-item expanded "><a href="ch03-03.html" class="active"><strong aria-hidden="true">3.3.</strong> helloworld 的crates/modules组成</a></li><li class="chapter-item expanded "><a href="ch03-04.html"><strong aria-hidden="true">3.4.</strong> 组装 helloworld</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00.html"><strong aria-hidden="true">4.</strong> 设计实现协作式多任务 unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01.html"><strong aria-hidden="true">4.1.</strong> 协作式多任务的功能需求</a></li><li class="chapter-item expanded "><a href="ch04-02.html"><strong aria-hidden="true">4.2.</strong> 协作式多任务相关的 crates/modules 组成</a></li><li class="chapter-item expanded "><a href="ch04-03.html"><strong aria-hidden="true">4.3.</strong> 协作式多任务的框架设计</a></li><li class="chapter-item expanded "><a href="ch04-04.html"><strong aria-hidden="true">4.4.</strong> 组装协作式多任务 unikernel</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">简明 Arceos Tutorial Book</a></li><li class="chapter-item expanded "><a href="ch01-00.html"><strong aria-hidden="true">1.</strong> 实验环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01.html"><strong aria-hidden="true">1.1.</strong> OS 环境配置</a></li><li class="chapter-item expanded "><a href="ch01-02.html"><strong aria-hidden="true">1.2.</strong> Rust 开发环境配置</a></li><li class="chapter-item expanded "><a href="ch01-03.html"><strong aria-hidden="true">1.3.</strong> Qemu 模拟器安装</a></li><li class="chapter-item expanded "><a href="ch01-04.html"><strong aria-hidden="true">1.4.</strong> 其他工具安装</a></li><li class="chapter-item expanded "><a href="ch01-05.html"><strong aria-hidden="true">1.5.</strong> 运行 Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00.html"><strong aria-hidden="true">2.</strong> unikernel 基本概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch02-01.html"><strong aria-hidden="true">2.1.</strong> 什么是单核？</a></li><li class="chapter-item expanded "><a href="ch02-02.html"><strong aria-hidden="true">2.2.</strong> arceos 的组成</a></li><li class="chapter-item expanded "><a href="ch02-03.html"><strong aria-hidden="true">2.3.</strong> 与具体 OS 无关的 crates</a></li><li class="chapter-item expanded "><a href="ch02-04.html"><strong aria-hidden="true">2.4.</strong> 与具有 OS 相关的 modules</a></li><li class="chapter-item expanded "><a href="ch02-05.html"><strong aria-hidden="true">2.5.</strong> arceos 的框架设计</a></li></ol></li><li class="chapter-item expanded "><a href="ch03-00.html"><strong aria-hidden="true">3.</strong> 设计实现 helloworld unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01.html"><strong aria-hidden="true">3.1.</strong> 依靠 axhal 组件实现从系统引导到输出</a></li><li class="chapter-item expanded "><a href="ch03-02.html"><strong aria-hidden="true">3.2.</strong> helloworld 程序基于 axhal 组件实现输出</a></li><li class="chapter-item expanded "><a href="ch03-03.html" class="active"><strong aria-hidden="true">3.3.</strong> 添加 axruntime 组件提供更完整的运行环境</a></li><li class="chapter-item expanded "><a href="ch03-04.html"><strong aria-hidden="true">3.4.</strong> 由开启动态内存分配特性来初识系统相关和无关</a></li><li class="chapter-item expanded "><a href="ch03-05.html"><strong aria-hidden="true">3.5.</strong> 修改命令实现对 features 的细粒度控制</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00.html"><strong aria-hidden="true">4.</strong> 设计实现协作式多任务 unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01.html"><strong aria-hidden="true">4.1.</strong> 协作式多任务的功能需求</a></li><li class="chapter-item expanded "><a href="ch04-02.html"><strong aria-hidden="true">4.2.</strong> 协作式多任务相关的 crates/modules 组成</a></li><li class="chapter-item expanded "><a href="ch04-03.html"><strong aria-hidden="true">4.3.</strong> 协作式多任务的框架设计</a></li><li class="chapter-item expanded "><a href="ch04-04.html"><strong aria-hidden="true">4.4.</strong> 组装协作式多任务 unikernel</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -169,7 +169,123 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="helloworld-的cratesmodules组成"><a class="header" href="#helloworld-的cratesmodules组成">helloworld 的crates/modules组成</a></h2>
+                        <h2 id="添加-axruntime-组件提供更完整的运行环境"><a class="header" href="#添加-axruntime-组件提供更完整的运行环境">添加 axruntime 组件提供更完整的运行环境</a></h2>
+<p>之所以将 helloworld 的 main 函数和 axhal 组合起来就能实现输出功能，是因为 helloworld 应用程序只用到了 axhal 提供的裸机输出功能， 如果我们需要支持更复杂的应用，axhal 提供的低级的裸机环境肯定不能满足我们的需求， 那么就需要用到 axruntime 这个更强大的组件了。</p>
+<p>axruntime 的主要功能是在进入应用程序的 main 函数之前执行一些初始化操作， 根据所选择的不同 feature 执行相对应的初始化过程。 </p>
+<pre class="mermaid">graph TD
+helloworld --&gt; axruntime --&gt; axhal
+</pre>
+<p>在这一节中我们直接使用 ArceOS 的源代码，将之前修改的代码还原，在 axhal 执行完后不是直接跳转到应用程序的 main 函数， 而是跳转到 axruntime 这个组件的 rust_main 函数，再跳转到 helloworld 的 main 函数。</p>
+<h3 id="动手尝试"><a class="header" href="#动手尝试">动手尝试</a></h3>
+<p>运行命令：</p>
+<pre><code class="language-shell">make ARCH= riscv64 A=apps/helloworld run LOG=debug
+</code></pre>
+<p>运行结果如下图，下面的调试输出信息绿色字体部分可以为我们直观地展示 axruntime 做的一些初始化的工作。</p>
+<p><img src="https://s2.loli.net/2023/07/07/5j7mDSt3oNqMHyd.png" alt="image-20230707100119498" /></p>
+<p>有了这三个组件，我们不仅能运行 helloworld 这样的简单程序，还能运行稍微复杂一些的程序。</p>
+<p>例如，运行 yield 应用程序 (FIFO scheduler): </p>
+<pre><code class="language-shell">make A=apps/task/yield ARCH=riscv64 LOG=info NET=y SMP=1 run
+</code></pre>
+<p>运行结果: </p>
+<p><img src="https://s2.loli.net/2023/07/07/OgBFrv8T1bmjEnG.png" alt="image-20230707143841246" /></p>
+<h3 id="运行过程分析"><a class="header" href="#运行过程分析">运行过程分析</a></h3>
+<p>让我们通过流程图看看 ArceOS 的运行背后到底发生了什么。</p>
+<p>第一步是一些初始化函数的调用过程。</p>
+<h4 id="step-1"><a class="header" href="#step-1">Step 1</a></h4>
+<pre class="mermaid">graph TD;
+    A[axhal::platform::qemu_virt_riscv::boot.rs::_boot] --&gt; init_boot_page_table;
+    A --&gt; init_mmu;
+    A --&gt; P[platform_init];
+    A --&gt; B[axruntime::rust_main];
+    P --&gt; P1[&quot;axhal::mem::clear_bss()&quot;];
+    P --&gt; P2[&quot;axhal::arch::riscv::set_trap_vector_base()&quot;];
+    P --&gt; P3[&quot;axhal::cpu::init_percpu()&quot;];
+    P --&gt; P4[&quot;axhal::platform::qemu_virt_riscv::irq.rs::init()&quot;];
+    P --&gt; P5[&quot;axhal::platform::qemu_virt_riscv::time.rs::init()&quot;];
+    B --&gt; axlog::init;
+    B --&gt; D[init_allocator];
+    B --&gt; remap_kernel_memory;
+    B --&gt; axtask::init_scheduler;
+    B --&gt; axdriver::init_drivers;
+    B --&gt; Q[axfs::init_filesystems];
+    B --&gt; axnet::init_network;
+    B --&gt; axdisplay::init_display;
+    B --&gt; init_interrupt;
+    B --&gt; mp::start_secondary_cpus;
+    B --&gt; C[main];
+    Q --&gt; Q1[&quot;disk=axfs::dev::Disk::new()&quot;];
+    Q --&gt; Q2[&quot;axfs::root::init_rootfs(disk)&quot;];
+    Q2 --fatfs--&gt; Q21[&quot;main_fs=axfs::fs::fatfs::FatFileSystem::new()&quot;];
+    Q2 --&gt; Q22[&quot;MAIN_FS.init_by(main_fs); MAIN_FS.init()&quot;];
+    Q2 --&gt; Q23[&quot;root_dir = RootDirectory::new(MAIN_FS)&quot;];
+    Q2 --devfs--&gt; Q24[&quot;axfs_devfs::DeviceFileSystem::new()&quot;];
+    Q2 --devfs--&gt; Q25[&quot;devfs.add(null, zero, bar)&quot;];
+    Q2 --&gt;Q26[&quot;root_dir.mount(devfs)&quot;];
+    Q2 --&gt;Q27[&quot;init ROOT_DIR, CURRENT_DIR&quot;];
+    D --&gt; E[&quot;In free memory_regions: axalloc::global_init&quot;];
+    D --&gt; F[&quot;In free memory_regions:  axalloc::global_add_memory&quot;];
+    E --&gt; G[axalloc::GLOBAL_ALLOCATOR.init];
+    F --&gt; H[axalloc::GLOBAL_ALLOCATOR.add_memory];
+    G --&gt; I[&quot;PAGE: self.palloc.lock().init&quot;];
+    G --&gt; J[&quot;BYTE: self.balloc.lock().init&quot;];
+    H --&gt; K[&quot;BYTE: self.balloc.lock().add_memory&quot;];
+    I --&gt; M[&quot;allocator::bitmap::BitmapPageAllocator::init()&quot;];
+    J --&gt;L[&quot;allocator::slab::SlabByteAllocator::init() self.inner = unsafe { Some(Heap::new(start, size))&quot;];
+    K --&gt; N[&quot;allocator::slab::SlabByteAllocator::add_memory:  self.inner_mut().add_memory(start, size);&quot;];
+
+
+</pre>
+<p>下面是 helloworld 程序的运行流程，实际上 helloworld 程序最后调用的是 axhal 封装好的输出功能，本质还是依靠 sbi 进行输出。</p>
+<h4 id="step-2"><a class="header" href="#step-2">Step 2</a></h4>
+<pre class="mermaid">graph TD;
+    A[main] --&gt; B[&quot;libax::println!(Hello, world!)&quot;];
+    B --&gt; C[libax:io::__print_impl];
+    C --&gt; D[INLINE_LOCK=Mutex::new];
+    C --&gt; _guard=INLINE_LOCK.lock;
+    C --&gt; E[&quot;stdout().write_fmt(args)&quot;];
+</pre>
+<h5 id="step-21"><a class="header" href="#step-21">step 2.1</a></h5>
+<pre class="mermaid">graph TD;
+    T[&quot;stdout()&quot;] --&gt; A[&quot;libax::io::stdio.rs::stdout()&quot;];
+    A --&gt; B[&quot;INSTANCE: Mutex&lt;StdoutRaw&gt; = Mutex::new(StdoutRaw)&quot;];
+    A --&gt; C[&quot;return Stdout { inner: &amp;INSTANCE }&quot;];
+</pre>
+<h5 id="step-22"><a class="header" href="#step-22">step 2.2</a></h5>
+<pre class="mermaid">graph TD;
+    T[&quot;stdout().write_fmt(args)&quot;] --&gt; A[&quot;Stdout::write&quot;];
+    A --&gt; B[&quot;self.inner.lock().write(buf)&quot;];
+    B --&gt; C[&quot;StdoutRaw::write&quot;];
+    C --&gt; D[&quot;axhal::console::write_bytes(buf);&quot;];
+    C --&gt; E[&quot;Ok(buf.len())&quot;];
+    D --&gt; F[&quot;putchar&quot;];
+    F --&gt; G[&quot;axhal::platform::qemu_virt_riscv::console::putchar&quot;];
+    G --&gt; H[&quot;sbi_rt::legacy::console_putchar&quot;];
+</pre>
+<h3 id="总结"><a class="header" href="#总结">总结</a></h3>
+<p>至此，我们已经完成了从 axhal 到 axruntime 到 helloworld 的组合了，并且将 helloworld unikernel 运行了起来。</p>
+<h3 id="附录"><a class="header" href="#附录">附录</a></h3>
+<ul>
+<li>
+<p><code>axruntime</code> 模块简介：</p>
+</li>
+<li>
+<p>模块源码位置：<a href="(https://github.com/rcore-os/arceos/tree/main/modules/axruntime)">modules/axruntime</a></p>
+<ul>
+<li>功能描述：在进入应用程序的 main 函数之前执行一些初始化操作， 根据所选择的 feature 执行相对应的初始化过程。</li>
+</ul>
+</li>
+<li>
+<p>流程图来源：</p>
+<ul>
+<li>
+<p>step 1 <a href="https://github.com/rcore-os/arceos/blob/main/doc/init.md">init</a></p>
+</li>
+<li>
+<p>step 2 <a href="https://github.com/rcore-os/arceos/blob/main/doc/apps_helloworld.md">helloworld</a></p>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
@@ -222,6 +338,8 @@
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
 
 
     </div>

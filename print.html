@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="cn" class="sidebar-visible no-js light">
+<html lang="cn" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Arceos Tutorial Book</title>
-        <meta name="robots" content="noindex" />
+        <title>ArceOS Tutorial Book</title>
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
         
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -32,7 +32,7 @@
         <!-- Custom theme stylesheets -->
 
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
     <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
@@ -62,31 +62,38 @@
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
+            var body = document.querySelector('body');
             var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">简明 Arceos Tutorial Book</a></li><li class="chapter-item expanded "><a href="ch01-00.html"><strong aria-hidden="true">1.</strong> 实验环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01.html"><strong aria-hidden="true">1.1.</strong> OS 环境配置</a></li><li class="chapter-item expanded "><a href="ch01-02.html"><strong aria-hidden="true">1.2.</strong> Rust 开发环境配置</a></li><li class="chapter-item expanded "><a href="ch01-03.html"><strong aria-hidden="true">1.3.</strong> Qemu 模拟器安装</a></li><li class="chapter-item expanded "><a href="ch01-04.html"><strong aria-hidden="true">1.4.</strong> 其他工具安装</a></li><li class="chapter-item expanded "><a href="ch01-05.html"><strong aria-hidden="true">1.5.</strong> 运行 Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00.html"><strong aria-hidden="true">2.</strong> unikernel 基本概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch02-01.html"><strong aria-hidden="true">2.1.</strong> 什么是单核？</a></li><li class="chapter-item expanded "><a href="ch02-02.html"><strong aria-hidden="true">2.2.</strong> arceos 的组成</a></li><li class="chapter-item expanded "><a href="ch02-03.html"><strong aria-hidden="true">2.3.</strong> 与具体 OS 无关的 crates</a></li><li class="chapter-item expanded "><a href="ch02-04.html"><strong aria-hidden="true">2.4.</strong> 与具有 OS 相关的 modules</a></li><li class="chapter-item expanded "><a href="ch02-05.html"><strong aria-hidden="true">2.5.</strong> arceos 的框架设计</a></li></ol></li><li class="chapter-item expanded "><a href="ch03-00.html"><strong aria-hidden="true">3.</strong> 设计实现 helloworld unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01.html"><strong aria-hidden="true">3.1.</strong> 依靠 axhal 组件实现从系统引导到输出</a></li><li class="chapter-item expanded "><a href="ch03-02.html"><strong aria-hidden="true">3.2.</strong> helloworld 程序基于 axhal 组件实现输出</a></li><li class="chapter-item expanded "><a href="ch03-03.html"><strong aria-hidden="true">3.3.</strong> 添加 axruntime 组件提供更完整的运行环境</a></li><li class="chapter-item expanded "><a href="ch03-04.html"><strong aria-hidden="true">3.4.</strong> 由开启动态内存分配特性来初识系统相关和无关</a></li><li class="chapter-item expanded "><a href="ch03-05.html"><strong aria-hidden="true">3.5.</strong> 修改命令实现对 features 的细粒度控制</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00.html"><strong aria-hidden="true">4.</strong> 设计实现协作式多任务 unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01.html"><strong aria-hidden="true">4.1.</strong> 协作式多任务的功能需求</a></li><li class="chapter-item expanded "><a href="ch04-02.html"><strong aria-hidden="true">4.2.</strong> 协作式多任务相关的 crates/modules 组成</a></li><li class="chapter-item expanded "><a href="ch04-03.html"><strong aria-hidden="true">4.3.</strong> 协作式多任务的框架设计</a></li><li class="chapter-item expanded "><a href="ch04-04.html"><strong aria-hidden="true">4.4.</strong> 组装协作式多任务 unikernel</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">简明 ArceOS Tutorial Book</a></li><li class="chapter-item expanded "><a href="ch01-00.html"><strong aria-hidden="true">1.</strong> 实验环境配置</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01.html"><strong aria-hidden="true">1.1.</strong> OS 环境配置</a></li><li class="chapter-item expanded "><a href="ch01-02.html"><strong aria-hidden="true">1.2.</strong> Rust 开发环境配置</a></li><li class="chapter-item expanded "><a href="ch01-03.html"><strong aria-hidden="true">1.3.</strong> Qemu 模拟器安装</a></li><li class="chapter-item expanded "><a href="ch01-04.html"><strong aria-hidden="true">1.4.</strong> 其他工具安装</a></li><li class="chapter-item expanded "><a href="ch01-05.html"><strong aria-hidden="true">1.5.</strong> 运行 Hello World</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00.html"><strong aria-hidden="true">2.</strong> unikernel 基本概念</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch02-01.html"><strong aria-hidden="true">2.1.</strong> 设计原则和思路</a></li><li class="chapter-item expanded "><a href="ch02-02.html"><strong aria-hidden="true">2.2.</strong> ArceOS 框架设计</a></li><li class="chapter-item expanded "><a href="ch02-03.html"><strong aria-hidden="true">2.3.</strong> 与具体 OS 无关的 crates</a></li><li class="chapter-item expanded "><a href="ch02-04.html"><strong aria-hidden="true">2.4.</strong> 与具有 OS 相关的 modules</a></li></ol></li><li class="chapter-item expanded "><a href="ch03-00.html"><strong aria-hidden="true">3.</strong> 设计实现 helloworld unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01.html"><strong aria-hidden="true">3.1.</strong> 依靠 axhal 组件实现从系统引导到输出</a></li><li class="chapter-item expanded "><a href="ch03-02.html"><strong aria-hidden="true">3.2.</strong> helloworld 程序基于 axhal 组件实现输出</a></li><li class="chapter-item expanded "><a href="ch03-03.html"><strong aria-hidden="true">3.3.</strong> 添加 axruntime 组件提供更完整的运行环境</a></li><li class="chapter-item expanded "><a href="ch03-04.html"><strong aria-hidden="true">3.4.</strong> 由开启动态内存分配特性来初识系统相关和无关</a></li><li class="chapter-item expanded "><a href="ch03-05.html"><strong aria-hidden="true">3.5.</strong> 修改命令实现对 features 的细粒度控制</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00.html"><strong aria-hidden="true">4.</strong> 设计实现协作式多任务 unikernel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01.html"><strong aria-hidden="true">4.1.</strong> 协作式多任务的功能需求</a></li><li class="chapter-item expanded "><a href="ch04-02.html"><strong aria-hidden="true">4.2.</strong> 协作式多任务相关的 crates/modules 组成</a></li><li class="chapter-item expanded "><a href="ch04-03.html"><strong aria-hidden="true">4.3.</strong> 协作式多任务的框架设计</a></li><li class="chapter-item expanded "><a href="ch04-04.html"><strong aria-hidden="true">4.4.</strong> 组装协作式多任务 unikernel</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -117,9 +124,9 @@
                                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
@@ -135,7 +142,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">Arceos Tutorial Book</h1>
+                    <h1 class="menu-title">ArceOS Tutorial Book</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -170,7 +177,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="简明-arceos-tutorial-book"><a class="header" href="#简明-arceos-tutorial-book">简明 Arceos Tutorial Book</a></h1>
+                        <h1 id="简明-arceos-tutorial-book"><a class="header" href="#简明-arceos-tutorial-book">简明 ArceOS Tutorial Book</a></h1>
 <h2 id="自己动手写组件化操作系统自顶向下自底向上的方法"><a class="header" href="#自己动手写组件化操作系统自顶向下自底向上的方法">自己动手写组件化操作系统：自顶向下+自底向上的方法</a></h2>
 <p>本教程假设读者了解操作系统基本概念和原理，具有常用的 Linux 系统使用经验，并且会使用 Rust 语言编写简单程序。
 如果读者不熟悉操作系统和 Rust 语言，希望以自底向上方法从零构建操作系统，[rCore Tutorial Boook v3] 可能是更好的选择。</p>
@@ -229,8 +236,8 @@ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 curl https://sh.rustup.rs -sSf | sh
 </code></pre>
 <p>或者使用 tuna 源来加速 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/rustup/">参见 rustup 帮助</a>：</p>
-<pre><code class="language-bash">export RUSTUP_DIST_SERVER=https://mirrors.tuna.edu.cn/rustup
-export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.edu.cn/rustup/rustup
+<pre><code class="language-bash">export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 curl https://sh.rustup.rs -sSf | sh
 </code></pre>
 <p>或者也可以通过在运行前设置命令行中的科学上网代理来实现：</p>
@@ -259,17 +266,17 @@ rustc 1.73.0-nightly (33a2c2487 2023-07-12)
 </code></pre>
 <p>我们最好把软件包管理器 cargo 所用的软件包镜像地址 crates.io 也换成中国科学技术大学的镜像服务器来加速三方库的下载。我们打开（如果没有就新建） <code>~/.cargo/config</code> 文件，并把内容修改为：</p>
 <pre><code>[source.crates-io]
-registry = &quot;https://github.com/rust-lang/crates.io-index&quot;
+registry = "https://github.com/rust-lang/crates.io-index"
 replace-with = 'ustc'
 [source.ustc]
-registry = &quot;git://mirrors.ustc.edu.cn/crates.io-index&quot;
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"
 </code></pre>
 <p>同样，也可以使用 tuna 源 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/">参见 crates.io 帮助</a>：</p>
 <pre><code>[source.crates-io]
 replace-with = 'tuna'
 
 [source.tuna]
-registry = &quot;https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git&quot;
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 </code></pre>
 <p>接下来安装一些Rust相关的软件包</p>
 <pre><code class="language-bash">rustup target add riscv64gc-unknown-none-elf
@@ -305,11 +312,11 @@ wget https://download.qemu.org/qemu-7.0.0.tar.xz
 tar xvJf qemu-7.0.0.tar.xz
 # 编译安装并配置 RISC-V 支持
 cd qemu-7.0.0
-./configure --target-list=riscv64-softmmu,riscv64-linux-user  # 如果要支持图形界面，可添加 &quot; --enable-sdl&quot; 参数
+./configure --target-list=riscv64-softmmu,riscv64-linux-user  # 如果要支持图形界面，可添加 " --enable-sdl" 参数
 make -j$(nproc)
 </code></pre>
 <blockquote>
-<p><font color=blue><strong>注解👉</strong></font>  </p>
+<p><font color=blue><strong>注解👉</strong></font> </p>
 <p>注意，上面的依赖包可能并不完全，比如在 Ubuntu 18.04 上：</p>
 <ul>
 <li>出现 <code>ERROR: pkg-config binary 'pkg-config' not found</code> 时，可以安装 <code>pkg-config</code> 包；</li>
@@ -397,8 +404,27 @@ export PATH=`pwd`/x86_64-linux-musl-cross/bin:`pwd`/aarch64-linux-musl-cross/bin
   > riscv = { git = "https://gitee.com/rcore-os/riscv", features = ["inline-asm"] }
   > ```
 --><div style="break-before: page; page-break-before: always;"></div><h2 id="unikernel-基本概念"><a class="header" href="#unikernel-基本概念">Unikernel 基本概念</a></h2>
-<h3 id="unikernel是一种轻量级操作系统构建技术它将应用程序内核必要组件编译打包为一个的最小化的镜像运行在模拟器或裸机"><a class="header" href="#unikernel是一种轻量级操作系统构建技术它将应用程序内核必要组件编译打包为一个的最小化的镜像运行在模拟器或裸机">Unikernel是一种轻量级操作系统构建技术，它将应用程序、内核、必要组件编译打包为一个的最小化的镜像，运行在模拟器或裸机。</a></h3>
-<p>Unikernel 有如下特点:</p>
+<h3 id="操作系统内核架构"><a class="header" href="#操作系统内核架构">操作系统内核架构</a></h3>
+<p>操作系统内核是计算机系统的核心，负责管理硬件资源，包括处理器、内存、磁盘存储等，并为运行在操作系统上的应用程序提供一组接口（系统调用）来访问这些资源。操作系统内核架构是指操作系统内核设计和实现的方式。以下是几种常见的操作系统内核架构：</p>
+<ol>
+<li>
+<p><strong>宏内核（Monolithic Kernel）：</strong> 宏内核将操作系统的所有服务，如设备驱动、文件系统、网络协议栈和进程调度等都集成在一个大的内核中，运行在内核空间。这种设计使得各个模块可以直接相互通信，因此性能较好。然而，宏内核的缺点是任何一个故障都可能导致整个系统崩溃。另外，由于所有模块都紧密耦合在一起，修改或添加功能也比较困难。Linux和UNIX就是采用宏内核设计的例子。</p>
+</li>
+<li>
+<p><strong>微内核（Microkernel）：</strong> 微内核只保留最基本的、必要的服务在内核空间，如进程间通信、内存管理和基本的I/O操作等，其他高级服务例如设备驱动、文件系统等都运行在用户空间。这样的设计使得系统更加稳定，因为即使一个服务出现故障也不会影响到整个系统，同时也使得系统更易于维护和扩展。但在性能方面，由于需要频繁地进行用户空间与内核空间之间的上下文切换，微内核的性能通常低于宏内核。Minix和QNX是采用微内核设计的例子。</p>
+</li>
+<li>
+<p><strong>混合内核（Hybrid Kernel）：</strong> 混合内核是试图结合宏内核和微内核的优点的一种设计方式。它尽量将更多的服务放入内核空间执行以提高性能，同时也尽可能地减少模块之间的依赖以增强稳定性。Windows NT和MacOS X的XNU内核都是混合内核的例子。</p>
+</li>
+<li>
+<p><strong>外核（Exokernel）：</strong> 外核将传统内核的抽象层次降低，允许应用程序直接管理硬件资源，从而提高效率。在外核架构中，内核仅负责确保资源的安全共享，而具体的资源管理策略则交给应用程序自己去确定。</p>
+</li>
+<li>
+<p><strong>单内核（Unikernel）：</strong> 单内核是一种新兴的内核架构，它将应用程序和内核捆绑在一起形成一个单一的可执行映像，该映像可以直接运行在虚拟机或裸机上。单内核适用于云计算和物联网环境，它的优点是体积小，启动快，但对开发者的编程要求较高。</p>
+</li>
+</ol>
+<h3 id="单内核unikernel架构"><a class="header" href="#单内核unikernel架构">单内核（Unikernel）架构</a></h3>
+<p>单内核（Unikernel）架构有如下特点:</p>
 <ol>
 <li>
 <p>单一镜像：将应用程序代码与操作系统核心功能合并到一个单一的可执行镜像中。这个镜像包含了应用程序所需的所有组件，包括网络协议、文件系统和设备驱动等。因此，每个 Unikernel 实例都是一个独立的、自包含的单元。</p>
@@ -420,23 +446,64 @@ export PATH=`pwd`/x86_64-linux-musl-cross/bin:`pwd`/aarch64-linux-musl-cross/bin
 <tr><td>功能分配</td><td>包含应用程序所需的最小化操作系统功能和库。</td><td>包含基本的操作系统功能，如进程管理、内存管理和进程间通信，而其他功能如文件系统、网络协议栈等被实现为用户空间的服务模块。</td><td>包含大量的功能和服务，这些功能和服务直接运行在内核空间，具有较高的集成性和内核级别的访问权限。</td></tr>
 <tr><td>性能</td><td>镜像小，启动速度快，没有额外的组件和系统调用，具有更高的性能和较低的资源消耗。</td><td>将功能模块化并移至用户空间，其性能相对较低。模块之间需要进行消息传递和系统调用，会引入额外的开销。</td><td>内核和服务的紧密集成，有较高的性能</td></tr>
 <tr><td>特权级</td><td>同一地址空间同一特权级。</td><td>只有进程管理和进程间通信在内核态</td><td>所有硬件操作在内核态</td></tr>
-<tr><td>代表系统</td><td>Arceos、Unikraft、MirageOS、IncludeOS</td><td>QNX、MINIX、L4微内核系列</td><td>Linux、Windows</td></tr>
+<tr><td>代表系统</td><td>ArceOS、Unikraft、MirageOS、IncludeOS</td><td>QNX、MINIX、L4微内核系列</td><td>Linux、Windows</td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h2 id="什么是单核"><a class="header" href="#什么是单核">什么是单核？</a></h2>
-<h3 id="单核single-core是指计算机处理器cpu中只包含一个核心在单核处理器中只有一个物理处理核心用于执行指令和处理数据"><a class="header" href="#单核single-core是指计算机处理器cpu中只包含一个核心在单核处理器中只有一个物理处理核心用于执行指令和处理数据">&quot;单核&quot;（Single Core）是指计算机处理器（CPU）中只包含一个核心。在单核处理器中，只有一个物理处理核心用于执行指令和处理数据。</a></h3>
-<p>每个核心是处理器中的一个独立的计算单元，可以执行指令、操作数据和处理各种任务。单核处理器只能在一个时刻执行一个指令流，这意味着它们在同一时间内只能处理一个任务。</p>
-<p>在单核处理器中，操作系统和应用程序必须通过时间片轮转或其他调度算法来共享核心的处理时间。这些算法在不同任务之间快速切换，使得每个任务都能在一段时间内获得处理器的时间片。</p>
-<p>与单核处理器相对的是多核处理器（Multi-Core），多核处理器包含两个或更多的处理核心，能够同时执行多个任务，并提供更高的并行处理能力。</p>
-<p>需要注意的是，尽管单核处理器只有一个物理核心，但它们仍然可以通过超线程（Hyper-Threading）等技术模拟出多个逻辑核心，以提高并发执行的效率。但这些逻辑核心并不等同于物理核心，其性能和并行性能可能有所限制。</p>
-<p>下面是单核处理器与多核处理器的对比:</p>
-<div class="table-wrapper"><table><thead><tr><th></th><th>单核处理器（Single Core）</th><th>多核处理器（Multi-Core）</th></tr></thead><tbody>
-<tr><td>核心数量</td><td>只有一个核心的处理器</td><td>具有两个或更多个核心的处理器</td></tr>
-<tr><td>性能</td><td>同一时间只能执行一个指令流</td><td>同时执行多个任务，提供更高的并行处理能力</td></tr>
-<tr><td>应用程序执行</td><td>执行多个任务时需要通过时间片轮转或其他调度算法来共享处理时间</td><td>能够同时处理多个任务，提供更好的响应时间和并行计算能力</td></tr>
-<tr><td>能耗</td><td>能耗通常较低</td><td>能耗通常较高</td></tr>
-</tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h2 id="arceos-的组成"><a class="header" href="#arceos-的组成">Arceos 的组成</a></h2>
-<p>Arceos 是一个开源的、组件化的Unikernel。以组合组件库的方式构建系统。使用Rust开发。</p>
+</div>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ul>
+<li><a href="https://github.com/chyyuu/aos_course_info/blob/master/unikernel-related.md">unikernel信息收集</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="arceos设计原则和思路"><a class="header" href="#arceos设计原则和思路">ArceOS设计原则和思路</a></h2>
+<h3 id="arceos要解决的问题"><a class="header" href="#arceos要解决的问题">ArceOS要解决的问题</a></h3>
+<h4 id="性能问题"><a class="header" href="#性能问题">性能问题</a></h4>
+<p>传统宏内核架构和微内核架构的操作系统在性能上有一些可以优化的地方，但在具体实施上又很难做到。</p>
+<ul>
+<li>如果OS信任APP，那么没有必要建立特权级隔离，这样可以减少特权级上下文切换和不同特权级间数据拷贝的性能开销。</li>
+<li>如果支持单应用，那么多个地址空间在单个应用程序域中的用处不大，反而会带来性能开销。</li>
+<li>如果支持功能有限的应用，那么与此无关的的内核功能模块也是没有必要的，这样可以减少内核的体积，减少内核启动时间。</li>
+<li>传统操作系统通用性的设计会引入不必要的开销，如虚拟文件系统的通用表示对应网络应用引入了不必要的过长执行路径。</li>
+<li>对应不同应用的需求可以采用不同的内核功能模块，如不同的内存分配算法/调度算法等，以提高整体性能。</li>
+</ul>
+<h4 id="安全问题"><a class="header" href="#安全问题">安全问题</a></h4>
+<p>ArceOS采用了一系列的新技术来解决传统操作系统的安全问题。</p>
+<ul>
+<li>采用Rust语言开发内核和应用</li>
+<li>对于Rust应用，尽量避免采用unsafe code进行编码</li>
+<li>对于C/C++应用，可以与OS一起整体隔离在一个虚拟机中执行</li>
+<li>采用单应用的架构，避免了不同应用之间的相互干扰</li>
+</ul>
+<h4 id="生态问题"><a class="header" href="#生态问题">生态问题</a></h4>
+<p>ArceOS在架构设计上，虽然目前的重点是基于unikernel架构，但也通过一系列的架构设计，支持宏内核和微内核架构</p>
+<ul>
+<li>在现有unikernel架构上进行扩展，支持宏内核或微内核架构</li>
+<li>通过支持Linux ABI，形成libc，支持Linux应用</li>
+<li>通过支持Linux Syscall，直接支持Linux应用运行</li>
+<li>通过支持Rust std库，直接支持Rust应用运行</li>
+</ul>
+<h4 id="开发问题"><a class="header" href="#开发问题">开发问题</a></h4>
+<p>操作系统开发一直是一个比较困难的事情，我们看到的实际情况是操作系统（如Linux）随着时间的发展越来越庞大臃肿，难以维护和开发。我们认为将来的操作系统不是像现在统治世界的 Linux、Windows 那样庞大而通用，而是各种可以迅速组合形成的，并且功能丰富多彩的组件化定制操作系统，能够快速适配未来多种多样的处理器、加速器、外设和应用需求，在开发的便捷性、性能和安全性等方面优于已有的通用操作系统。但如何设计组件化定制操作系统是一个需要深入思考的挑战性问题。为此我们一直在思考能否通过基于泛型的独立功能组件来快速构建各种领域专用的OS。</p>
+<p>我们认为开发操作系统的痛点是开发者编写操作系统软件很繁琐，需要关注的细节太多。其根本原因是操作系统内部模块广泛的相互依赖带来的软件复杂性，以及操作系统的自包含性带来的软件不可重用性。我们需要把操作系统看出是一个多层次的软件栈，分析操作系统中各个功能的层次划分，各个功能模块具有独立性，从而形成面向操作系统的层次化软件开发方法。</p>
+<h4 id="arceos的设计原则"><a class="header" href="#arceos的设计原则">ArceOS的设计原则</a></h4>
+<p>我们希望操作系统开发者能够快速创建一个面向特定领域的操作系统内核，且对于每个应用程序，能确保最佳性能、高安全和高可靠的需求，同时能轻松移植现有的应用程序。为此，需要建立如下一些设计原则：</p>
+<ul>
+<li>单体执行：应用与内核形成一个整体，运行在裸机或虚拟机上。</li>
+<li>单地址空间：主要针对单个应用程序方案，不同的应用程序通过共享内存或网络通信交互。</li>
+<li>单保护域：应用程序与内核运行在同一特权级，应用程序可以直接访问内核的数据结构和硬件资源。</li>
+<li>与OS无关的内核功能组件：形成广泛的内核功能组件，可在没有OS的情况下独立运行和测试。</li>
+<li>与硬件无关的内核功能组件：形成广泛的内核功能组件，可在不同的硬件平台上运行。</li>
+<li>支持Linux ABI：支持Linux应用程序运行。</li>
+<li>支持Rust std库：支持Rust应用程序运行。</li>
+<li>架构可扩展：除了单体内核架构，也可扩展威微内核架构和宏内核架构。</li>
+</ul>
+<p>简而言之，ArceOS是一个基于Rust语言的Unikernel，它的目标是为云计算平台提供一种高性能、高可靠、高安全、易开发的操作系统解决方案。ArceOS的设计思路是将操作系统的核心功能和应用程序紧密集成在一起，形成一个单一的可执行镜像，这个镜像包含了应用程序所需的所有功能组件，包括网络协议、文件系统和设备驱动等。而组成ArceOS的功能组件是可以独立存在的，并可以与其它功能组件组合，形成新的领域操作系统内核。</p>
+<h2 id="参考文献-1"><a class="header" href="#参考文献-1">参考文献</a></h2>
+<ul>
+<li><a href="https://github.com/chyyuu/thoughts/blob/main/tangram-oskits.md">像开发应用一样开发操作系统</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="arceos-框架设计"><a class="header" href="#arceos-框架设计">ArceOS 框架设计</a></h2>
+<p>ArceOS的整体架构如下所示：</p>
+<img src="./assets/ArceOS.svg" />
+<p>ArceOS 是一个开源的、组件化的Unikernel。以组合组件库的方式构建系统。使用Rust开发。</p>
 <p>具有一下特点和功能:</p>
 <ul>
 <li>CPU架构: x86_64, riscv64, aarch64</li>
@@ -449,13 +516,13 @@ export PATH=`pwd`/x86_64-linux-musl-cross/bin:`pwd`/aarch64-linux-musl-cross/bin
 <li>SMP调度: SMP scheduling with single run queue</li>
 <li>文件系统: File system</li>
 </ul>
-<h3 id="arceos-由appscratesmodules组成"><a class="header" href="#arceos-由appscratesmodules组成">Arceos 由apps、crates、modules组成</a></h3>
+<h3 id="arceos-由appscratesmodules组成"><a class="header" href="#arceos-由appscratesmodules组成">ArceOS 由apps、crates、modules组成</a></h3>
 <ul>
 <li>apps: 应用程序。它的运行需要依赖于modules组件库。</li>
-<li>modules: Arceos的组件库。</li>
+<li>modules: ArceOS的组件库。</li>
 <li>crates: 通用的基础库。为modules实现提供支持。</li>
 </ul>
-<p>当前Arceos项目的apps列表如下:</p>
+<p>当前ArceOS项目的apps列表如下:</p>
 <h4 id="applications-rust"><a class="header" href="#applications-rust">Applications (Rust)</a></h4>
 <div class="table-wrapper"><table><thead><tr><th>App</th><th>Extra modules</th><th>Enabled features</th><th>Description</th></tr></thead><tbody>
 <tr><td><a href="../apps/helloworld/">helloworld</a></td><td></td><td></td><td>A minimal app that just prints a string</td></tr>
@@ -532,8 +599,6 @@ export PATH=`pwd`/x86_64-linux-musl-cross/bin:`pwd`/aarch64-linux-musl-cross/bin
 <li><a href="../modules/axsync">axsync</a>: ArceOS 提供的同步操作模块，包括：Mutex、spin。</li>
 <li><a href="../modules/axtask">axtask</a>: ArceOS 的任务调度管理模块，包括：任务创建、调度、休眠、销毁等。</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="arceos-的框架设计"><a class="header" href="#arceos-的框架设计">arceos 的框架设计</a></h2>
-<img src="./assets/ArceOS.svg" />
 <div style="break-before: page; page-break-before: always;"></div><h2 id="设计实现-helloworld-unikernel"><a class="header" href="#设计实现-helloworld-unikernel">设计实现 helloworld unikernel</a></h2>
 <p>通常，我们在学习一门新的编程语言时，接触的第一个示例程序就是 helloworld，当一名新的程序员清除完一切障碍顺利抵达 helloworld 时，他的内心体验到的不仅仅是一种成功的喜悦，更重要的是，他正在亲身经历一个跨越历史的时刻。各位，你还记得你第一次写的 helloworld 吗？</p>
 <p>这一章，我们将沿袭前人之路，以 helloworld 来开启沟通 ArceOS 世界的历程。我们将通过从零开始设计实现一个 helloworld unikernel，来直接感受 ArceOS 的理念、特性。</p>
@@ -551,7 +616,7 @@ export PATH=`pwd`/x86_64-linux-musl-cross/bin:`pwd`/aarch64-linux-musl-cross/bin
 
 int main()
 {
-	printf(&quot;hello world!&quot;);
+	printf("hello world!");
     return 0;
 }
 </code></pre>
@@ -575,17 +640,19 @@ axhal
 <p>在 ArceOS 中，axhal 组件提供了一层针对不同硬件平台的硬件封装，它为指定的操作平台进行引导和初始化过程，并提供对硬件的操作。例如 modules/axhal/src/platform/qemu_virt_riscv/console.rs 里面提供了对字符输出的封装，我们可以直接调用其中的 putchar 函数进行字符的输出，而不是一次又一次地使用 sbi 这样汇编级别的代码进行输出。</p>
 <p>其实在 ArceOS 里面，putchar函数经过了许多层的封装已经变成类似于 print 这样方便用户使用的函数了，helloworld unikernel 里面的输出调用链可以查看本章第三部分， 但其实 helloworld 输出的本质还是调用 axhal 组件的putchar函数，接下来让我们抛掉方便用户调用的封装，通过对 axhal 代码的一些修改，来直观地感受一下系统启动和调用 axhal 所提供的 putchar 函数进行输出的流程。</p>
 <h3 id="动手尝试"><a class="header" href="#动手尝试">动手尝试</a></h3>
-<p>以 qemu_virt_riscv 平台为例， 我们首先关注 modules/axhal/src/platform/qemu_virt_riscv/boot.rs 这个文件， 其中的 _start() 函数被链接到 &quot;.text.boot&quot; 段， 作为 ArceOS 运行的第一段代码。具体的不同段的分配可以查看 modules/axhal/linker.lds.S 文件。</p>
+<p>以 qemu_virt_riscv 平台为例， 我们首先关注 modules/axhal/src/platform/qemu_virt_riscv/boot.rs 这个文件， 其中的 _start() 函数被链接到 ".text.boot" 段， 作为 ArceOS 运行的第一段代码。具体的不同段的分配可以查看 modules/axhal/linker.lds.S 文件。</p>
 <p>接下来我们尝试在里面直接调用 ArceOS 为我们封装好的 sbi 函数进行输出，首先添加 console_putchar 函数方便输出我们想要输出的结果。</p>
 <pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>unsafe fn console_putchar() {
+</span>use crate::console::putchar;
+
+unsafe fn console_putchar() {
   putchar(10); // 打印换行符
-  putchar(72); // 打印&quot;H“
-  putchar(69); // 打印&quot;E“
-  putchar(76); // 打印&quot;L“
-  putchar(76); // 打印&quot;L“
-  putchar(79); // 打印&quot;O“
+  putchar(72); // 打印"H“
+  putchar(69); // 打印"E“
+  putchar(76); // 打印"L“
+  putchar(76); // 打印"L“
+  putchar(79); // 打印"O“
   // 下面可以输出任何想要的内容， 只需更改参数即可
 }
 <span class="boring">}</span></code></pre></pre>
@@ -603,13 +670,13 @@ call {console_putchar}
 call {init_mmu}
 <span class="boring">}</span></code></pre></pre>
 <p>//  TODO!  完整的代码 (boot.rs) 见实验部分</p>
-<p>此时我们只需执行: </p>
-<pre><code class="language-shell">make ARCH=riscv64 A=apps/helloworld run
+<p>此时我们只需执行:</p>
+<pre><code class="language-shell">make PLATFORM=riscv64-qemu-virt A=apps/helloworld run
 </code></pre>
-<p>如无意外， 我们在打印 ArceOS 的 LOGO 之前看到了我们调用 putchar 函数进行的输出 &quot;HELLO FROM SBI&quot;， 当然，每个字符的输出只需要在 console_putchar 中自行添加即可。 </p>
+<p>如无意外， 我们在打印 ArceOS 的 LOGO 之前看到了我们调用 putchar 函数进行的输出 "HELLO FROM SBI"， 当然，每个字符的输出只需要在 console_putchar 中自行添加即可。</p>
 <p><img src="https://s2.loli.net/2023/07/06/OKws6HjEV478J5D.png" alt="image-20230706161125604" /></p>
 <h3 id="总结"><a class="header" href="#总结">总结</a></h3>
-<p>至此，我们已经完成了从系统引导到输出的最小流程， 而且从开机到输出这个过程不依赖于 axhal 外的任一组件，并且是可以在真实的硬件环境中(例如 CV1811H 的 riscv 开发板)进行输出的， 这也体现了 ArceOS 的设计思路， 我们只需要复用这一个模块，就能很方便地对硬件进行操作了。 </p>
+<p>至此，我们已经完成了从系统引导到输出的最小流程， 而且从开机到输出这个过程不依赖于 axhal 外的任一组件，并且是可以在真实的硬件环境中(例如 CV1811H 的 riscv 开发板)进行输出的， 这也体现了 ArceOS 的设计思路， 我们只需要复用这一个模块，就能很方便地对硬件进行操作了。</p>
 <h3 id="附录"><a class="header" href="#附录">附录</a></h3>
 <h4 id="axhal-模块简介"><a class="header" href="#axhal-模块简介"><code>axhal</code> 模块简介：</a></h4>
 <p>模块源码位置：<a href="https://github.com/rcore-os/arceos/tree/main/modules/axhal">modules/axhal</a></p>
@@ -626,15 +693,15 @@ helloworld --&gt; axhal
 <p>我们看到 boot.rs 的汇编代码最后有一段跳转到 entry 的代码， 目前来说，ArceOS 运行到这里之后，就会跳转到 rust_entry 函数（在axhal/src/platform/qemu_virt_riscv/mod.rs 文件中），这个函数会执行一些初始化流程，然后调用rust_main 函数（在 modules/axruntime/src/lib.rs 文件中）， rust_main 函数会根据选择的 feature 进行初始化的流程， 最后会调用应用程序的 main 函数。</p>
 <p>为避免引入过多组件， 我们直接将 axhal/src/platform/qemu_virt_riscv/mod.rs 里面 rust_entry 中调用的 rust_main() 函数换成应用程序的 main 函数(记得要在上面 extern 引用 main 函数)， 并加上一行 self::misc::terminate()， 方便 arceos 运行完程序后终止，以防止ArceOS卡死不能正常退出（目前退出的功能依赖于下一部分提到的axruntime组件）。</p>
 <p>axhal/src/platform/qemu_virt_riscv/mod.rs</p>
-<pre><pre class="playground"><code class="language-rust edition2021">extern &quot;C&quot; {
+<pre><pre class="playground"><code class="language-rust edition2021">extern "C" {
     fn trap_vector_base();
     fn rust_main(cpu_id: usize, dtb: usize);
     fn main();  // 从外部引入main函数
-    #[cfg(feature = &quot;smp&quot;)]
+    #[cfg(feature = "smp")]
     fn rust_main_secondary(cpu_id: usize);
 }
 
-unsafe extern &quot;C&quot; fn rust_entry(cpu_id: usize, dtb: usize) {
+unsafe extern "C" fn rust_entry(cpu_id: usize, dtb: usize) {
     crate::mem::clear_bss();
     crate::cpu::init_primary(cpu_id);
     crate::arch::set_trap_vector_base(trap_vector_base as usize);
@@ -642,34 +709,34 @@ unsafe extern &quot;C&quot; fn rust_entry(cpu_id: usize, dtb: usize) {
     main();  // 跳转到应用程序的main函数
     self::misc::terminate();  // 程序运行后终止
 }</code></pre></pre>
-<p>执行: </p>
-<pre><code class="language-shell">make ARCH=riscv64 A=apps/helloworld run
+<p>执行:</p>
+<pre><code class="language-shell">make PLATFORM=riscv64-qemu-virt A=apps/helloworld run
 </code></pre>
 <p>如无意外， helloworld成功输出！说明我们的思路是正确的，将要输出的内容通过 helloworld 传递给 axhal，这样只需要两个组件就能实现应用程序 helloworld 的运行和输出。</p>
 <p><img src="https://s2.loli.net/2023/07/06/3TNuBdRbEcCAevM.png" alt="image-20230706151516690" /></p>
 <h3 id="总结-1"><a class="header" href="#总结-1">总结</a></h3>
 <p>其实 helloworld 程序本质还是调用 axhal 的 sbi 输出功能（具体步骤见第三部分流程图），我们把两个组件结合了起来！这也体现了 ArceOS 的思想，只需要把需要的部分组合起来就能实现我们想要的功能。</p>
 <h3 id="附录-1"><a class="header" href="#附录-1">附录</a></h3>
-<p><a href="https://github.com/rcore-os/arceos/blob/main/apps/helloworld/src/main.rs">helloworld源代码</a> </p>
-<p><a href="https://github.com/rcore-os/arceos/blob/main/doc/apps_helloworld.md">helloworld文档</a> </p>
+<p><a href="https://github.com/rcore-os/arceos/blob/main/apps/helloworld/src/main.rs">helloworld源代码</a></p>
+<p><a href="https://github.com/rcore-os/arceos/blob/main/doc/apps_helloworld.md">helloworld文档</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="添加-axruntime-组件提供更完整的运行环境"><a class="header" href="#添加-axruntime-组件提供更完整的运行环境">添加 axruntime 组件提供更完整的运行环境</a></h2>
 <p>之所以将 helloworld 的 main 函数和 axhal 组合起来就能实现输出功能，是因为 helloworld 应用程序只用到了 axhal 提供的裸机输出功能， 如果我们需要支持更复杂的应用，axhal 提供的低级的裸机环境肯定不能满足我们的需求， 那么就需要用到 axruntime 这个更强大的组件了。</p>
-<p>axruntime 的主要功能是在进入应用程序的 main 函数之前执行一些初始化操作， 根据所选择的不同 feature 执行相对应的初始化过程。 </p>
+<p>axruntime 的主要功能是在进入应用程序的 main 函数之前执行一些初始化操作， 根据所选择的不同 feature 执行相对应的初始化过程。</p>
 <pre class="mermaid">graph TD
 helloworld --&gt; axruntime --&gt; axhal
 </pre>
 <p>在这一节中我们直接使用 ArceOS 的源代码，将之前修改的代码还原，在 axhal 执行完后不是直接跳转到应用程序的 main 函数， 而是跳转到 axruntime 这个组件的 rust_main 函数，再跳转到 helloworld 的 main 函数。</p>
 <h3 id="动手尝试-2"><a class="header" href="#动手尝试-2">动手尝试</a></h3>
 <p>运行命令：</p>
-<pre><code class="language-shell">make ARCH= riscv64 A=apps/helloworld run LOG=debug
+<pre><code class="language-shell">make PLATFORM=riscv64-qemu-virt A=apps/helloworld run LOG=debug
 </code></pre>
 <p>运行结果如下图，下面的调试输出信息绿色字体部分可以为我们直观地展示 axruntime 做的一些初始化的工作。</p>
 <p><img src="https://s2.loli.net/2023/07/07/5j7mDSt3oNqMHyd.png" alt="image-20230707100119498" /></p>
 <p>有了这三个组件，我们不仅能运行 helloworld 这样的简单程序，还能运行稍微复杂一些的程序。</p>
-<p>例如，运行 yield 应用程序 (FIFO scheduler): </p>
-<pre><code class="language-shell">make A=apps/task/yield ARCH=riscv64 LOG=info NET=y SMP=1 run
+<p>例如，运行 yield 应用程序 (FIFO scheduler):</p>
+<pre><code class="language-shell">make A=apps/task/yield PLATFORM=riscv64-qemu-virt LOG=info NET=y SMP=1 run
 </code></pre>
-<p>运行结果: </p>
+<p>运行结果:</p>
 <p><img src="https://s2.loli.net/2023/07/07/OgBFrv8T1bmjEnG.png" alt="image-20230707143841246" /></p>
 <h3 id="运行过程分析"><a class="header" href="#运行过程分析">运行过程分析</a></h3>
 <p>让我们通过流程图看看 ArceOS 的运行背后到底发生了什么。</p>
@@ -713,7 +780,7 @@ helloworld --&gt; axruntime --&gt; axhal
     G --&gt; J[&quot;BYTE: self.balloc.lock().init&quot;];
     H --&gt; K[&quot;BYTE: self.balloc.lock().add_memory&quot;];
     I --&gt; M[&quot;allocator::bitmap::BitmapPageAllocator::init()&quot;];
-    J --&gt;L[&quot;allocator::slab::SlabByteAllocator::init() self.inner = unsafe { Some(Heap::new(start, size))&quot;];
+    J --&gt;L[&quot;allocator::slab::SlabByteAllocator::init() self.inner = unsafe { Some(Heap::new(start, size)) } &quot;];
     K --&gt; N[&quot;allocator::slab::SlabByteAllocator::add_memory:  self.inner_mut().add_memory(start, size);&quot;];
 
 
@@ -796,25 +863,25 @@ helloworld --&gt; axruntime --&gt; axhal
 <p>这里我们简化了一下，没有涉及到其他辅助类的模块的展示，只展示了必要的功能依赖链。</p>
 <p>具体体现在代码中，首先，我们修改 apps/helloworld/Cargo.toml，添加开启动态内存分配的特性：</p>
 <pre><code class="language-toml">[dependencies]
-libax = { path = &quot;../../ulib/libax&quot;, features=[&quot;alloc&quot;]} #尝试添加动态分配内存的feature
+axstd = { path = "../../ulib/axstd", features=["alloc"], optional = true } #尝试添加动态分配内存的feature
 </code></pre>
 <p>之后，我们修改 apps/helloworld/src/main.rs，尝试使用 alloc 特性提供的动态分配内存功能：</p>
-<pre><pre class="playground"><code class="language-rust edition2021">#![no_std]
-#![no_main]
+<pre><pre class="playground"><code class="language-rust edition2021">#![cfg_attr(feature = "axstd", no_std)]
+#![cfg_attr(feature = "axstd", no_main)]
 
-use libax::println;
-<span class="boring">为 helloworld 提供可以动态内存分配的字符串类型
-</span>use libax::string::String;
+use axstd::println;
+// 为 helloworld 提供可以动态内存分配的字符串类型
+use axstd::string::String;
 
-#[no_mangle]
+#[cfg_attr(feature = "axstd", no_mangle)]
 fn main() {
-<span class="boring">	声明并初始化一个 String 字符串
-</span>    let s = String::from(&quot;I am ArceOS!&quot;);
-    println!(&quot;Hello, world! {}&quot;, s);
+    // 声明并初始化一个 String 字符串
+    let s = String::from("I am ArceOS!");
+    println!("Hello, world! {}", s);
 }</code></pre></pre>
-<p>运行<code>make A=apps/helloworld ARCH=riscv64 LOG=info run</code>，此时运行结果如下图所示：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/07/08/12879bc9837566bb.png" alt="" /></p>
-<p>打印出”Hello world! I am ArceOS&quot;，说明我们成功为 helloworld 提供了动态内存分配功能。</p>
+<p>运行<code>make PLATFORM=riscv64-qemu-virt A=apps/helloworld run</code>，此时运行结果如下图所示：</p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/08/24/60e8ff4c63aa0d80.png" alt="" /></p>
+<p>打印出”Hello world! I am ArceOS"，说明我们成功为 helloworld 提供了动态内存分配功能。</p>
 <h3 id="总结-3"><a class="header" href="#总结-3">总结</a></h3>
 <p>其实像这种 ArceOS 在用户看不见的地方根据用户选择的特性需求，组装并扩展各种模块提供定制的运行环境，其实就是 ArceOS 的组件化运作的核心机制。我们从最简单的 helloworld 使用动态内存分配特性出发，“窥一斑而知全豹”，来触及 ArceOS 的核心运作机制。在后续的章节中我们会为读者展示 ArceOS 更为强大的功能特性，其功能运作的基本原理和 helloworld 是大体相似的，相信读者理解了这部分的内容，后续章节理解起来会更为顺畅一些。</p>
 <h3 id="附录-3"><a class="header" href="#附录-3">附录</a></h3>
@@ -826,15 +893,15 @@ fn main() {
 <h3 id="动手尝试-4"><a class="header" href="#动手尝试-4">动手尝试</a></h3>
 <p>这部分讲的是用户可以通过修改运行命令的内容，来进一步细粒度的控制特性，这个部分比较简单，读者可以很轻松地完成。</p>
 <p>以向屏幕打印日志信息为例，如果想要修改日志的过滤等级，例如，展示出 warn 级以上的日志（info 日志不会打印到屏幕上），可以修改原来的运行命令，这里还是以 qemu risv64 平台为例，原始命令为：</p>
-<pre><code class="language-bash">make A=apps/helloworld ARCH=riscv64 LOG=info run
+<pre><code class="language-bash">make A=apps/helloworld PLATFORM=riscv64-qemu-virt LOG=info run
 </code></pre>
 <p>尝试运行一下，发现 info 以上级别的日志会被打印出来（提示：绿色字体所在行为 info 级别的日志信息）：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/07/08/70bcb2d5d8955ed2.png" alt="" /></p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/08/24/5706b1bcd08e415a.png" alt="" /></p>
 <p>如果修改 log 日志等级：</p>
-<pre><code class="language-bash">make A=apps/helloworld ARCH=riscv64 LOG=warn run
+<pre><code class="language-bash">make A=apps/helloworld PLATFORM=riscv64-qemu-virt LOG=warn run
 </code></pre>
 <p>此时能够展示日志的最低级别提高到 warn，之前 info 级别的日志不会被打印到屏幕中，尝试运行上述命令，运行结果如下：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2023/07/08/ff2b0cf439009c81.png" alt="" /></p>
+<p><img src="https://s3.bmp.ovh/imgs/2023/08/24/d8b314bf0939c624.png" alt="" /></p>
 <p>我们可以看到之前展示出来绿色字体的 info 日志行都消失了。</p>
 <h3 id="实现原理"><a class="header" href="#实现原理">实现原理</a></h3>
 <p>feature 的参数控制也是 ArceOS 的强大功能之一，和之前的部分不同，用户从开启或关闭 feature 变成了具体调整 feature 特性的参数，以达到自己所需要的最佳环境支持。用户通过运行命令来调整 feature 的流程可以用下图来表示：</p>
@@ -849,14 +916,163 @@ fn main() {
     allocator;
     end
 </pre>
-<p>结合图中展示和具体实现部分，用户 (Client) 通过命令传递想要控制的参数，自顶往下由 helloworld 传递到 modules，最终抵达 modules/axruntime/src/lib.rs(123 行)<code>axlog::set_max_level(option_env!(&quot;LOG&quot;).unwrap_or(&quot;&quot;));</code>这行代码, 接收用户在命令上设置的<code>LOG</code>控制参数来实现对日志过滤等级的控制。</p>
+<p>结合图中展示和具体实现部分，用户 (Client) 通过命令传递想要控制的参数，自顶往下由 helloworld 传递到 modules，最终抵达 modules/axruntime/src/lib.rs(123 行)<code>axlog::set_max_level(option_env!("LOG").unwrap_or(""));</code>这行代码, 接收用户在命令上设置的<code>LOG</code>控制参数来实现对日志过滤等级的控制。</p>
 <h3 id="总结-4"><a class="header" href="#总结-4">总结</a></h3>
 <p>用户通过命令进行其他参数控制也经历类似于 LOG 的 feature 传递，然后抵达真正的实现位置，将用户设置应用到系统上。虽然可能自顶向下的寻找路线不同（需要达到 不同 feature 对应的功能模块），所需要的路径长短不同（要控制的 feature 可能需要和硬件驱动进行交互），但是核心思想都是一致的。可以类比为用户是一个操控者，通过手中的线（feature 命令参数）来控制木偶（ArceOS）来达到他想要的展示动作（运行环境）。</p>
 <p><img src="https://s3.bmp.ovh/imgs/2023/07/09/1f9a24064eb6d6db.png" alt="" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="设计实现协作式多任务unikernel"><a class="header" href="#设计实现协作式多任务unikernel">设计实现协作式多任务unikernel</a></h2>
+<p>在操作系统设计中，如何确保同时处理多个请求？我们可以使用线程或进程进行多任务处理实现，但还有一个选择——协作性多任务处理。</p>
+<p>这个选项是最困难的。在这里我们说操作系统当然很酷，它有调度程序和计划程序，它可以处理进程，线程，组织它们之间的切换，处理锁等，但它仍然不知道应用程序是如何工作的，而这些工作原理应该是我们作为开发人员所知道的。</p>
+<p>我们知道在CPU上会有短暂的时刻执行某些计算操作，但大多数时候我们都期望网​​络I/O能更清楚何时在处理多个请求之间切换。</p>
+<p>从操作系统的角度来看，协作式多任务只是一个执行线程，在其中，应用程序在处理多个请求/命令之间切换。通常情况是：只要一些数据到达，就会读取它们，解析请求，将数据发送到数据库，这是一个阻塞操作；而非堵塞操作时在等待来自数据库的响应时，可以开始处理另一个请求，它被称为“合作或协作”，因为所有任务/命令必须通过合作以使整个调度方案起作用。它们彼此交错，但是有一个控制线程，称为协作调度程序，其角色只是启动进程并让这些线程自动将控制权返回给它。</p>
+<p>这比线程的多任务处理更简单，因为程序员总是知道当一个任务执行时，另一个任务不会执行，虽然在单处理器系统中，线程应用程序也将以交错模式执行这种模型，但使用线程的程序员仍应考虑此方法的缺陷，以免应用程序在移动到多处理器系统时工作不正常。但是，即使在多处理器系统上，单线程异步系统也总是以交错方式执行。</p>
+<p>编写这样的程序的困难在于，这种切换，维护上下文的过程，将每个任务组织为一系列间歇性执行的较小步骤，落在开发人员身上。另一方面，我们获得了效率，因为没有不必要的切换，例如，在线程和进程之间切换时切换处理器上下文没有问题。</p>
+<p>在实现了Hello World编写和运行之后，我们终于可以首窥操作系统内核设计中的第一个重要部分：协作式多任务的实现。</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="协作式多任务的功能需求"><a class="header" href="#协作式多任务的功能需求">协作式多任务的功能需求</a></h2>
+<h3 id="协作式多任务的主体实现"><a class="header" href="#协作式多任务的主体实现">协作式多任务的主体实现</a></h3>
+<p>协作式多任务是一种任务调度方式，它与抢占式多任务(preemptive)相对应，关于后者，我们将在下一章详细说明。在本章学习中，我们先要了解“non-preeptive"——或者说是协作的调度方式。比起抢占，它显得更加友善而不具有侵略性。要设计一个协作式多任务的unikernel，需要满足这些要求：</p>
+<ol>
+<li>
+<p>任务切换机制：实现任务的切换和调度，确保多个任务在适当的时候轮流执行。任务切换应该是协作式的，即任务自愿放弃执行权，而不是由系统强制进行切换。这部分的需求确定了unikernel需要依赖于<code>axtask</code>这一module以及<code>multitask</code>、<code>sched_fifo</code>、<code>sched_cfs</code>等任务管理相关的crates。</p>
+</li>
+<li>
+<p>上下文保存与恢复：在任务切换时，需要保存当前任务的上下文（包括寄存器、程序计数器、堆栈等状态），以便后续能够正确地恢复该任务的执行状态。这也包括了允许任务在运行过程中主动挂起自己，将执行权让给其他任务。同时，需要提供相应的机制来恢复挂起的任务继续执行。</p>
+</li>
+<li>
+<p>任务优先级管理：支持为不同的任务设置优先级，以确保高优先级的任务在系统资源有限时能够优先得到执行。在ArceOS支持的app中，<code>apps_priority</code>实现了这个目标。</p>
+</li>
+<li>
+<p>任务同步与通信：提供机制来实现任务之间的同步和通信，以防止竞态条件和数据访问冲突。在ArceOS中，我们可以参考app <code>parallel</code>了解具体的实现。</p>
+</li>
+<li>
+<p>定时器和延时：提供定时器功能，允许任务在一定时间后唤醒或执行延时操作。在ArceOS中，我们可以参考app <code>sleep</code>了解具体的实现。</p>
+</li>
+</ol>
+<p>可以感受到，比起Hello World，实现协作式多任务涉及到的modules和crates、调用了它们实现的app都大为增加。</p>
+<h3 id="调试和运行需求"><a class="header" href="#调试和运行需求">调试和运行需求</a></h3>
+<p>在Hello World的实现过程中，我们已经初步了解了ArceOS从代码再到硬件的落地，最后在嵌入式设备实机运行的过程。在本章，读者可以利用上一章的经验，在硬件设备对生成的二进制镜像进行调试。为此，在最终烧录时ArceOS也将实现开发者的调试和改造需求：</p>
+<ol>
+<li>
+<p>异常处理：处理任务执行过程中可能出现的异常情况，例如任务错误、内存越界等情况。这些比较难处理的错误需要日志的打印来实现，具体操作我们沿用了HelloWorld中的处理，同时引入了app <code>exception</code>细化异常打印日志。</p>
+</li>
+<li>
+<p>系统可扩展性：设计具有良好可扩展性的任务管理机制，允许动态地创建和销毁任务，以适应不同应用场景和任务数量的需求。在实现这个unikernel的app中（<code>parallel</code>、<code>priority</code>、<code>sleep</code>、<code>yield</code>），我们都进行了编译内核数、架构、日志输出粒度等的自由设置。</p>
+</li>
+</ol>
+<p>这些功能需求可以根据不同的应用场景和系统设计来进行调整和扩展。实现协作式多任务的关键在于任务的合作和互相信任，确保任务在适当的时机让出执行权，以实现良好的系统响应性和资源利用率。</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="协作式多任务相关的cratesmodules组成"><a class="header" href="#协作式多任务相关的cratesmodules组成">协作式多任务相关的crates/modules组成</a></h2>
+<h3 id="什么是crates和modules"><a class="header" href="#什么是crates和modules">什么是Crates和Modules</a></h3>
+<p>对于初学Rust的读者来说，在继续探索协作式多任务的具体实现前，最好先理解在Rust模块化编程中常见、并在ArceOS中广泛使用的crates和modules的定义。</p>
+<h4 id="crate箱"><a class="header" href="#crate箱">Crate：箱</a></h4>
+<p>Crate 是“箱子”的意思。在 《Rust 权威指南》中被翻译为“单元包”。因为Crate 是 Rust 的最小编译单元。</p>
+<ul>
+<li>Crate 在一个范围内将相关的功能组合在一起，并最终通过编译生成一个二进制文件或库。</li>
+<li>Crate 并不等同于一个 .rs 文件。Crate 可以就是一个 .rs 文件， .rs 文件还可以通过 mod 关键字引入其他 .rs 文件中的模块。</li>
+</ul>
+<p>所以 Crate 更严格的定义是一个<strong>用于生成库或可执行文件的树形模块结构</strong>。在上一章里最终实现的.bin文件即是依赖crate实现的。</p>
+<h4 id="module模块"><a class="header" href="#module模块">Module：模块</a></h4>
+<p>Rust 中，模块和单独的文件不存在必然关联。
+在编写 Rust 程序时，可以不使用模块。但是当一个 crate 中的代码越来越多时就会变得不好维护，所以就可以将其拆分成一个个独立的模块，以便于增强于可读性和代码复用。
+定义模块使用 mod 关键字。也就是说，一个文件中可以没有模块，也可以有多个模块。文件和模块不是一对一的关系。
+Rust 中的模块是一种
+同时，Module 还能控制代码的可见性，也就是将代码分为公开代码和私有代码，公开代码可以在项目外被使用，私有代码只能在项目内被访问。</p>
+<h3 id="协作式多任务unikernel依赖modules"><a class="header" href="#协作式多任务unikernel依赖modules">协作式多任务unikernel依赖modules</a></h3>
+<h4 id="从优先级的实现看modules"><a class="header" href="#从优先级的实现看modules">从优先级的实现看modules</a></h4>
+<p>想要确定一个任务什么时候需要终止运行或是与其它任务共享有限的资源，我们必须首先明确各个任务之间的优先级区别，而优先级一般是由各个任务的到达时间、运行时间等参数确定的。上面这段话涉及到两个关键点——任务本身和ArceOS选择的策略，分别对应到两个module：<code>axtask</code>以及<code>axalloc</code>；前者负责任务本身（如运行时长等）调配，后者负责操作系统的内存分配策略（cfs、fifo、rr等）的分配。</p>
+<p>对于这些分配的算法目前都已经有了成型的实现方法，换句话说它们其实是与操作系统无关的。对于ArceOS，我们可以借助这个特点将它们封装成与系统无关的modules。</p>
+<p>对于不同的任务，我们在priority中的<code>main.rs</code>进行了手动规定，读者也可以通过修改其中参数运行来观察优先级在不同策略下的分配：</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>const TASK_PARAMS: &amp;[TaskParam] = &amp;[
+    // four short tasks
+    TaskParam {
+        data_len: 40,
+        value: 1000000,
+        nice: 19,
+    },
+    TaskParam {
+        data_len: 40,
+        value: 1000000,
+        nice: 10,
+    },
+    TaskParam {
+        data_len: 40,
+        value: 1000000,
+        nice: 0,
+    },
+    TaskParam {
+        data_len: 40,
+        value: 1000000,
+        nice: -10,
+    },
+    // one long task
+    TaskParam {
+        data_len: 4,
+        value: 10000000,
+        nice: 0,
+    },
+];
+<span class="boring">}</span></code></pre></pre>
+<p>在上面的代码里我们规定了四个短任务和一个长任务，长度在参数<code>value</code>中确定任务的长度。有兴趣的同学可以在ArceOS的根文件目录下尝试运行以下命令体验不同的分配策略效果。</p>
+<pre><code class="language-bash">test_one "SMP=1 LOG=info" "expect_info_smp1_fifo.out"
+test_one "SMP=1 LOG=info APP_FEATURES=sched_cfs" "expect_info_smp1_cfs.out"
+test_one "SMP=1 LOG=info APP_FEATURES=sched_rr" "expect_info_smp1_rr.out"
+test_one "SMP=4 LOG=info APP_FEATURES=sched_cfs" "expect_info_smp4_cfs.out"
+</code></pre>
+<p>通过上面的任务，相信读者对<code>axtask</code>以及<code>axalloc</code>的功能已经有了初步的认识,接下来我们可以通过arceos提供的<code>yield</code>app来阐明与实现协作式多任务相关的crates。</p>
+<h4 id="yield产生多线程的测试"><a class="header" href="#yield产生多线程的测试">yield：产生多线程的测试</a></h4>
+<p>在上面的app中，我们实现了任务的调度，下一个目标即是实现任务间的切换。在任务切换中，线程间的切换相较于线程容易不少，所以我们先从<code>yield</code>这一app开始，初步了解实现协作式多任务最终目标前modules和crates是如何衔接的。</p>
+<p>现代的任务调度算法基本都是抢占式的，它要求每个应用只能连续执行一段时间，然后内核就会将它强制性切换出去。 一般将 时间片 (Time Slice) 作为应用连续执行时长的度量单位，每个时间片可能在毫秒量级。 一般使用时间片轮转算法 (RR, Round-Robin) 来对应用进行调度。为了实现协作的目标，在运行和测试这个app过程中需要选择传统的cfs或fifo进行测试。</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    for i in 0..NUM_TASKS {
+        task::spawn(move || {
+            println!("Hello, task {}! id = {:?}", i, task::current().id());
+            // 此时已经启动了yield
+            // preempt所需要的依赖libax/sched_rr并没有被包含进去,所以这里默认为协作式实现
+            #[cfg(not(feature = "preempt"))]
+            task::yield_now();
+
+            let order = FINISHED_TASKS.fetch_add(1, Ordering::Relaxed);
+            if option_env!("SMP") == Some("1") {
+                assert!(order == i); // FIFO scheduler
+            }
+        });
+    }
+    println!("Hello, main task{}!");
+    while FINISHED_TASKS.load(Ordering::Relaxed) &lt; NUM_TASKS {
+        #[cfg(not(feature = "preempt"))]
+        task::yield_now();
+    }
+    println!("Task yielding tests run OK!");
+}</code></pre></pre>
+<p>这是一个利用fifo算法进行线程管理的示例程序。从代码实现细节来看，主要分成两步实现：</p>
+<ol>
+<li>操作系统初始化，加载yield app。</li>
+<li>使用<code>task::spawn</code>循环来生成<code>NUM_TASKS</code>任务（类似于线程）。
+每个任务执行一个函数，只需打印其ID即可。
+如果禁用抢占，也就是应用协作式方法，任务会自动执行<code>yield</code>以放弃CPU。如果不使能SMP，使用单核编译，任务的执行顺序必须是<code>FIFO</code>。
+<code>main task</code>将等待所有其他任务完成。如果没有，则继续执行<code>yield</code>并等待。</li>
+</ol>
+<p>也就是说我们如果不规定APP_FEATURE内参数为抢占，那么将默认采取协作式进行实现。读者可以通过运行以下命令进行测试：</p>
+<pre><code class="language-bash">make A=apps/task/yield ARCH=riscv64 LOG=info NET=y SMP=1 run
+</code></pre>
+<p>启动yield的同时，我们实现了更加细节部分的调用，流程图如下：</p>
+<pre class="mermaid">graph TD;
+    T[&quot;main task&quot;] --&gt; A[&quot;axtask::lib::spawn&quot;];
+    A -- &quot;task_i&quot; --&gt; B[&quot;axtask::run_queue::AxRunqQueue.scheduler.push_back(tasak_i)&quot;];
+    A --&gt; C[&quot;RUN_QUEUE.lock()&quot;];
+    B -- &quot;repeat n times&quot; --&gt; A;
+    B -- &quot;main task&quot; --&gt; D[&quot;axtask::lib::yield_now&quot;];
+    D --&gt; E[&quot;axtask::run_queue::AxRunqQueue::resched_inner&quot;];
+    E -- &quot;prev&quot; --&gt; F[&quot;axtask::run_queue::AxRunqQueue.scheduler.push_back(prev)&quot;];
+    E -- &quot;next=axtask::run_queue::AxRunqQueue.scheduler.pop_front()&quot; --&gt; G[&quot;axtask::run_queue::AxRunqQueue:: switch_to(prev,next)&quot;];
+    G -- &quot;repeat n times&quot; --&gt; D;
+    G -- &quot;all n subtask finished&quot; --&gt; H[&quot;finished&quot;]
+</pre>
+<p>可以看到，我们在实现协作式多任务相关的unikernel时，需要在统一的接口实现内存分配的算法，包括了<code>alloc</code>和<code>paging</code>。实现具体分配算法时，则需要调用多任务相关的<code>multitask</code>和<code>schedule</code>两个crates。</p>
+<p>TODO：输出截图</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="协作式多任务的框架设计"><a class="header" href="#协作式多任务的框架设计">协作式多任务的框架设计</a></h2>
+<p>上一小节我们已经通过<code>yield</code>和<code>priority</code>初步了解了实现协作式多任务所需的crates和modules，相信有操作系统学习经验的读者也应该对这些算法有基本的了解。ArceOS以它的组件化和定制化见长，核心的设计亮点则是它的框架。本节将以<code>parallel</code>和<code>sleep</code>两个协作式核心应用的实现为基础介绍这部分unikernel的框架设计。</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="组装协作式多任务unikernel"><a class="header" href="#组装协作式多任务unikernel">组装协作式多任务unikernel</a></h2>
 
                     </main>
